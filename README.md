@@ -40,6 +40,8 @@ uvx sliceproofkit --help
 sliceproofkit apply --dest . --agents all
 # or pick some
 sliceproofkit apply --dest . --agents antigravity,trae,cursor
+# from this repo (no install)
+sliceproofkit apply --kit src/sliceproofkit/kit --dest . --agents all
 ```
 
 ### List supported agents
