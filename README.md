@@ -225,11 +225,13 @@ Current templates include:
 * `claude_code`
 * `windsurf`
 * `aider`
+* `iflow-cli`
+* `codebuddy`
 
 > Add a new agent:
 >
-> 1. Create `agents/<agent_name>/...`
-> 2. Add it to `manifest.yaml`
+> 1. Create `src/sliceproofkit/kit/agents/<agent_name>/...`
+> 2. Add it to `src/sliceproofkit/kit/manifest.yaml`
 > 3. Done — the apply tool discovers it automatically
 
 ---

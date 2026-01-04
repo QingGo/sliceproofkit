@@ -62,3 +62,15 @@ agents:
     copy:
     - src: agents/aider/AIDER_CONVENTIONS.md
       dst: AIDER_CONVENTIONS.md
+  iflow-cli:
+    copy:
+    - src: agents/iflow-cli/IFLOW.md
+      dst: IFLOW.md
+    - src: agents/iflow-cli/.iflowignore
+      dst: .iflowignore
+  codebuddy:
+    copy:
+    - src: agents/codebuddy/CODEBUDDY.md
+      dst: CODEBUDDY.md
+    - src: agents/codebuddy/.codebuddy
+      dst: .codebuddy

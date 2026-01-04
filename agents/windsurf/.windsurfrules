@@ -1,3 +1,0 @@
-# Windsurf rules (short + hard)
-Read `AGENT.md` first. Use slice protocol and evidence-driven verification.
-Always run verify_fast via run_with_log.sh and report run_id + logs/latest.log.

@@ -47,13 +47,20 @@ def parse_agents(raw: str) -> List[str]:
         return []
     if raw.lower() == "all":
         return ["all"]
+    aliases = {
+        "iflow": "iflow-cli",
+        "iflowcli": "iflow-cli",
+        "code-buddy": "codebuddy",
+    }
     parts = [p.strip() for p in raw.split(",") if p.strip()]
     seen = set()
     out: List[str] = []
     for p in parts:
-        if p not in seen:
-            out.append(p)
-            seen.add(p)
+        key = p.lower()
+        name = aliases.get(key, p)
+        if name not in seen:
+            out.append(name)
+            seen.add(name)
     return out
 
 

@@ -11,7 +11,7 @@ Key features:
   - "all"  (apply all agents listed in manifest)
   - comma-separated list: "antigravity,trae"
 - Extensible: available agents are discovered from manifest.yaml, not hard-coded.
-- Templates live in agent-kit repo; this script copies/renders them into the dev repo.
+- Templates live under src/sliceproofkit/kit; this script copies/renders them into the dev repo.
 - Render placeholders in text templates using {{VAR}} (PROJECT_NAME, TODAY, etc).
 - Merges .gitignore snippet instead of overwriting.
 
@@ -43,6 +43,7 @@ except Exception:
 PLACEHOLDER = re.compile(r"\{\{\s*([A-Z0-9_]+)\s*\}\}")
 
 DEFAULT_MANIFEST = "manifest.yaml"
+DEFAULT_KIT_REL = Path("src") / "sliceproofkit" / "kit"
 
 
 @dataclass(frozen=True)
@@ -289,10 +290,11 @@ def main() -> None:
         required=True,
         help='Agent selectors: "all" or comma-separated list (e.g. antigravity,trae)',
     )
+    default_kit = (Path(__file__).resolve().parent / DEFAULT_KIT_REL).resolve()
     ap.add_argument(
         "--kit",
-        default=str(Path(__file__).resolve().parent),
-        help="agent-kit repo root (default: directory of this script)",
+        default=str(default_kit),
+        help="kit root (default: src/sliceproofkit/kit in this repo)",
     )
     ap.add_argument("--manifest", default=DEFAULT_MANIFEST, help="manifest filename (relative to kit root)")
     ap.add_argument("--force", action="store_true", help="Overwrite existing files (gitignore is merged)")
